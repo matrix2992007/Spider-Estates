@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | Spider Estates</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <!-- 1. شاشة تسجيل الدخول الفخمة -->
+    <div id="admin-login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-logo">
+                <i class="fa-solid fa-spider gold-text"></i>
+                <h2>SPIDER <span class="gold-text">ADMIN</span></h2>
+            </div>
+            <p>أدخل مفتاح العبور السري للوصول للوحة التحكم</p>
+            <div class="input-group">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="admin-password" placeholder="مفتاح العبور...">
+            </div>
+            <button onclick="checkAdminPassword()" class="btn-gold full-width">دخول المنصة</button>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- 2. لوحة التحكم الرئيسية (مخفية حتى تسجيل الدخول) -->
+    <div id="admin-dashboard" class="dashboard-container hidden">
+        <header class="admin-header-nav">
+            <div class="admin-title">
+                <i class="fa-solid fa-sliders gold-text"></i>
+                <h2>لوحة إدارة العقارات الحصرية</h2>
+            </div>
+            <button onclick="logoutAdmin()" class="btn-outline"><i class="fa-solid fa-sign-out-alt"></i> خروج</button>
+        </header>
+
+        <div class="admin-grid">
+            <!-- فورم إضافة عقار جديد -->
+            <div class="admin-card form-card">
+                <h3><i class="fa-solid fa-plus-circle gold-text"></i> إضافة صفقة جديدة</h3>
+                <form id="add-property-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label>عنوان العقار (مثال: فيلا فاخرة بالشيخ زايد)</label>
+                        <input type="text" id="prop-title" required placeholder="اكتب عنواناً جذاباً...">
+                    </div>
+                    
+                    <div class="form-group grid-2">
+                        <div>
+                            <label>السعر (بالجنيه)</label>
+                            <input type="text" id="prop-price" required placeholder="مثال: 13,000,000">
+                        </div>
+                        <div>
+                            <label>الموقع</label>
+                            <input type="text" id="prop-location" required placeholder="مثال: الشيخ زايد، الحي الرابع">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>وصف العقار والتفاصيل</label>
+                        <textarea id="prop-desc" rows="4" required placeholder="اكتب مواصفات الفيلا أو الأرض بالتفصيل..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>رفع صورة العقار يدوياً</label>
+                        <div class="file-upload-zone">
+                            <input type="file" id="prop-image" accept="image/*" required onchange="previewImage(event)">
+                            <div class="upload-content">
+                                <i class="fa-solid fa-cloud-arrow-up gold-text"></i>
+                                <p id="upload-status">اضغط هنا لرفع الصورة من جهازك</p>
+                            </div>
+                        </div>
+                        <img id="image-preview" class="img-preview hidden" src="#" alt="معاينة الصورة">
+                    </div>
+
+                    <button type="submit" class="btn-gold full-width"><i class="fa-solid fa-paper-plane"></i> نشر العقار في المنصة الرئيسية</button>
+                </form>
+            </div>
+
+            <!-- قائمة العقارات الحالية للتحكم فيها أو مسحها -->
+            <div class="admin-card list-card">
+                <h3><i class="fa-solid fa-list-check gold-text"></i> العقارات المعروضة حالياً</h3>
+                <div id="admin-properties-list" class="admin-properties-list">
+                    <!-- الجافا سكربت هيعرض العقارات هنا مع زرار مسح (Delete) لكل عقار -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
