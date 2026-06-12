@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider Estates | سبايدر العقارية</title>
+    <!-- ملف الستاين الموحد -->
+    <link rel="stylesheet" href="css.css">
+    <!-- أيقونات FontAwesome للفخامة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- الهيدر واللوجو -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-spider gold-text"></i>
+                <span>SPIDER <span class="gold-text">ESTATES</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#hero" class="active">الرئيسية</a>
+                <a href="#properties">العقارات الحصرية</a>
+                <a href="admin.html" class="admin-badge"><i class="fa-solid fa-user-gear"></i> دخول الأدمن</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- واجهة الترحيب الفخمة (Hero Section) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">We Don't Just Find Properties,<br><span class="gold-text">We Secure Empires.</span></h1>
+            <p class="fade-in-delayed">سبايدر العقارية — نؤمن الصفقات الكبرى والملايين بأعلى مستوى من السرية والاحترافية.</p>
+            <a href="#properties" class="btn-gold">تصفح العقارات المتاحة <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- قسم العقارات والأراضي -->
+    <section id="properties" class="properties-section">
+        <div class="section-title">
+            <h2>المحافظ العقارية المتاحة</h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <!-- الحاوية الديناميكية اللي السكربت هيصب فيها الكروت والصور تلقائياً -->
+        <div id="properties-grid" class="properties-grid">
+            <!-- إذا لم تكن هناك عقارات مرفوعة من الأدمن -->
+            <div class="no-properties">جاري تحميل الصفقات الحصرية الحالية...</div>
+        </div>
+    </section>
+
+    <!-- الفوتر الفخم -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Spider Estates. All Rights Reserved. Crafted for VIP Clients.</p>
+    </footer>
+
+    <!-- ملف الجافا سكربت الموحد -->
+    <script src="script.js"></script>
+</body>
+</html>
