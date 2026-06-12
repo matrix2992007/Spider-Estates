@@ -1,0 +1,628 @@
+/* ==========================================
+   1. الإعدادات الأساسية والخطوط (Core & Typography)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+:root {
+    --bg-main: #0b0b0b;
+    --bg-card: #141414;
+    --bg-input: #1f1f1f;
+    --gold: #d4af37;
+    --gold-hover: #f3cf65;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --danger: #ff4d4d;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(212, 175, 55, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   2. الهيدر الفخم (Main Header)
+   ========================================== */
+.main-header {
+    background-color: rgba(11, 11, 11, 0.9);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--gold);
+}
+
+.admin-badge {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--gold);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.admin-badge:hover {
+    background: var(--gold) !important;
+    color: var(--bg-main) !important;
+}
+
+/* ==========================================
+   3. الواجهة الرئيسية (Hero Section)
+   ========================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle, #1a1a1a 0%, #0b0b0b 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920') no-repeat center center/cover;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+/* الأزرار الفخمة */
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, #b3922e 100%);
+    color: var(--bg-main);
+    border: none;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ==========================================
+   4. قسم كروت العقارات (Properties Section)
+   ========================================== */
+.properties-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gold-line {
+    width: 80px;
+    height: 4px;
+    background: var(--gold);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.no-properties {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: var(--text-gray);
+    font-size: 18px;
+}
+
+.no-properties i {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: rgba(212, 175, 55, 0.3);
+}
+
+/* كارت العقار الفخم */
+.property-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
+}
+
+.property-img-wrapper {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.property-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.property-card:hover .property-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.exclusive-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    color: var(--bg-main);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.property-details {
+    padding: 25px;
+}
+
+.property-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-white);
+}
+
+.property-location {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.property-desc {
+    font-size: 14px;
+    color: #b0b0b0;
+    line-height: 1.6;
+    height: 75px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.property-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-price {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+}
+
+.property-price small {
+    font-size: 12px;
+    color: var(--text-white);
+    font-weight: 400;
+}
+
+.btn-contact {
+    background: #0088cc;
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+.btn-contact:hover {
+    background: #00a2f3;
+}
+
+/* ==========================================
+   5. لوحة التحكم والشاشات الزجاجية (Admin System)
+   ========================================== */
+.admin-body {
+    background: #080808;
+}
+
+/* واجهة الدخول السحرية */
+.login-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(20,20,20,0.9) 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.login-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.login-logo {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.login-logo i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.login-card p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+}
+
+.input-group input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 45px 12px 15px;
+    color: var(--text-white);
+    border-radius: 12px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--gold);
+}
+
+.error-msg {
+    color: var(--danger);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* بناء الداشبورد */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.admin-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.admin-title h2 {
+    font-size: 24px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--text-gray);
+    color: var(--text-white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 900px) {
+    .admin-grid { grid-template-columns: 1fr; }
+}
+
+.admin-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.admin-card h3 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+/* منطقة رفع الصور */
+.file-upload-zone {
+    border: 2px dashed rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.02);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.file-upload-zone:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.file-upload-zone input[type="file"] {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-content i {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.img-preview {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid var(--gold);
+}
+
+/* قائمة التحكم وحذف العقارات */
+.admin-properties-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+.admin-prop-item {
+    background: var(--bg-input);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-prop-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.admin-prop-info {
+    flex-grow: 1;
+}
+
+.admin-prop-info h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.admin-prop-info p {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.btn-delete {
+    background: rgba(255, 77, 77, 0.1);
+    border: none;
+    color: var(--danger);
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-delete:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+/* ==========================================
+   6. الفوتر والأنيميشن (Footer & Animations)
+   ========================================== */
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    margin-top: 60px;
+}
+
+/* الحركات الفخمة عند التحميل */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-delayed {
+    opacity: 0;
+    animation: fadeIn 1s ease 0.4s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
